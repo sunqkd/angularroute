@@ -1,14 +1,16 @@
-<p>
-	这里是股票页
-</p>
-<p>
-	股票id是:{{stockId}}
-</p>
-<p>
-	data：{{isPro}}
-</p>
+<div class="stock">
+	<p>
+		这里是股票页
+	</p>
+	<p>
+		股票id是:{{stockId}}
+	</p>
+	<p>
+		data：{{isPro}}
+	</p>
 
-<a [routerLink] = "['./buyer' , 100]">买家列表</a>
-<a [routerLink] = "['./']">卖家列表</a>
+	<a [routerLink] = "['./buyer' , 100]">买家列表</a>
+	<a [routerLink] = "['./']">卖家列表</a>
 
-<router-outlet></router-outlet> <!--路由显示区域-->
+	<router-outlet></router-outlet> <!--路由显示区域-->
+</div>
