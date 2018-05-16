@@ -10,8 +10,11 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class StockComponent implements OnInit {
 
 
-	private stockId:number;
+	private stock:Stock;
 	private isPro:boolean;
+
+
+	private focus:boolean = false;
 
 	constructor(private routerInfo: ActivatedRoute) { }
 
@@ -25,9 +28,30 @@ export class StockComponent implements OnInit {
 
 		// this.stockId = this.routerInfo.snapshot.params["id"];  // 第二种 获得路由传值
 		
-		this.routerInfo.params.subscribe((params:Params) => this.stockId = params["id"]) // 监听路由跳转
+		// this.routerInfo.params.subscribe((params:Params) => this.stockId = params["id"]) // 监听路由跳转
 
 		this.isPro = this.routerInfo.snapshot.data[0].isPro
+
+
+
+
+		this.routerInfo.data.subscribe((data: {stock:Stock}) => {
+			this.stock = data.stock;
+		})
+	}
+
+	isFocus () {
+
+		return this.focus;
+
+	}
+
+}
+
+
+export class Stock {
+	constructor(public id:number, public name:string){
+		
 	}
 
 }

@@ -6,6 +6,11 @@ import { Code404Component } from './code404/code404.component';
 import { BuyerListComponent } from './buyer-list/buyer-list.component';
 import { SellerListComponent } from './seller-list/seller-list.component';
 import { ConsultComponent } from './consult/consult.component';
+import { PermissionGuard } from './guard/permission.guard';
+import { FocusGuard } from './guard/focus.guard';
+import { StockResolve } from './guard/stock.resolve';
+
+
 const routes: Routes = [ // 路由配置
 	{path: '' , redirectTo: '/Home', pathMatch: 'full'}, // 路由重定向 
 	// {path: 'xx' , redirectTo: '/Home', pathMatch: 'prefix'}, // 路由重定向xx   localhost:4200/xx
@@ -18,7 +23,15 @@ const routes: Routes = [ // 路由配置
 		{path: '' , component:SellerListComponent},
 		{path: 'buyer/:id' , component:BuyerListComponent}
 		
-    ]}, // 第三种
+    ],
+
+    // canActivate: [PermissionGuard],
+    // canDeactivate: [FocusGuard]
+    resolve: {
+        stock:StockResolve
+    }
+
+    }, // 第三种
 
 
 	{path: 'consult' ,component:ConsultComponent, outlet: 'aux'},

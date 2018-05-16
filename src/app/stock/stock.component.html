@@ -3,7 +3,10 @@
 		这里是股票页
 	</p>
 	<p>
-		股票id是:{{stockId}}
+		股票id是:{{stock.id}}
+	</p>
+	<p>
+		股票的名字 {{stock.name}}
 	</p>
 	<p>
 		data：{{isPro}}
@@ -13,4 +16,8 @@
 	<a [routerLink] = "['./']">卖家列表</a>
 
 	<router-outlet></router-outlet> <!--路由显示区域-->
+
+
+	<button (click)="focus = true">关注</button>
+
 </div>
